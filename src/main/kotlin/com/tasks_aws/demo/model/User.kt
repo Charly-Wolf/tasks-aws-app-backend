@@ -1,5 +1,6 @@
 package com.tasks_aws.demo.model
 
+import com.tasks_aws.demo.model.dto.UserDto
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
@@ -16,4 +17,6 @@ data class User (
     companion object {
         const val COLLECTION_NAME = "users"
     }
+
+    fun toDto(): UserDto = UserDto(id = this.id, name = this.name)
 }
