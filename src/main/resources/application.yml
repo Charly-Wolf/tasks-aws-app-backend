@@ -1,6 +1,13 @@
 spring:
   application:
     name: "tasks aws demo"
+  data:
+    mongodb:
+      uri: ${MONGO_URI}
+      database: tasks-app
 
 server:
   port: 8080
+
+cors:
+  allowed-origins: "*"

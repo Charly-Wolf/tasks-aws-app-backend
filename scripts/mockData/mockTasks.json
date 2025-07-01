@@ -1,0 +1,30 @@
+[
+    {
+      "_id": "task1",
+      "listId": "list1",
+      "title": "Buy bread",
+      "done": false,
+      "createdAt": "2025-06-30T10:05:00Z"
+    },
+    {
+      "_id": "task2",
+      "listId": "list1",
+      "title": "Buy bread",
+      "done": true,
+      "createdAt": "2025-06-30T10:06:00Z"
+    },
+    {
+      "_id": "task3",
+      "listId": "list2",
+      "title": "Finish report",
+      "done": false,
+      "createdAt": "2025-06-30T11:15:00Z"
+    },
+    {
+      "_id": "task4",
+      "listId": "list3",
+      "title": "Fix the kitchen sink",
+      "done": false,
+      "createdAt": "2025-06-29T16:10:00Z"
+    }
+  ]
