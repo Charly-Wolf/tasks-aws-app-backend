@@ -36,7 +36,7 @@ class TaskListRepositoryTest(
                 val allLists = testee.findAll()
 
                 // Then
-                allLists.size shouldBe 1
+                allLists.size shouldBe 2
 
                 val retrievedFirstList = allLists.first()
                 val expectedList = Fixtures.mockTaskList().copy(id = "1", userId = "user1", title = "list1")
