@@ -1,77 +1,78 @@
-# Kotlin / Java
+# === Kotlin / Java ===
 *.class
 *.jar
 *.war
 *.ear
 
-# Build output
+# === Build output ===
 /build/
 /out/
 /target/
 
-# Gradle
+# === Gradle ===
 .gradle/
-build/
+/build/
 
-# IntelliJ IDEA
-/.idea/
-/*.iml
+# Gradle Wrapper
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/gradle-wrapper.jar
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
 *.iws
 *.ipr
 out/
 
-# VS Code
+# === VS Code ===
 .vscode/
 
-# Logs
+# === Logs ===
 *.log
 
-# MacOS
+# === OS files ===
 .DS_Store
-
-# Linux
 *.swp
 
-# Temporary files
+# === Temp files ===
 *.tmp
 *.temp
+*.bak
+*.orig
 
-# Environment variables files
+# === Env files ===
 .env
 .env.local
 .env.*.local
 
-# Terraform
+# === Terraform ===
 *.tfstate
 *.tfstate.*
 .terraform/
 
-# Local database files (if you use something local)
+# === Local DB files ===
 *.db
 *.sqlite
 
-# Kotlin specific
+# === Lint & test reports ===
 .kotlinter-report.xml
-
-# Kotest reports (por si los generás)
 kotest-reports/
-
-# Miscellaneous
-.idea/
-*.iml
-
-# Docker (si usás)
-docker-compose.override.yml
-Dockerfile
-
-# Node modules si tenés frontend
-node_modules/
-
-# Coverage reports
 coverage/
 *.lcov
 
-# Misc
-*.bak
-*.orig
+# === Docker ===
+docker-compose.override.yml
+Dockerfile.local
 
+# === Node / Frontend (por si tenés Vue/React) ===
+node_modules/
+dist/
+*.tsbuildinfo
+
+# === Misc ===
+*.old
+*.rej
+*.swo
+*.swn
