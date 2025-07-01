@@ -4,8 +4,8 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 
-@Document(List.COLLECTION_NAME)
-class List (
+@Document(TaskList.COLLECTION_NAME)
+class TaskList (
     @Id
     val id: String? = null,
     val userId: String,
