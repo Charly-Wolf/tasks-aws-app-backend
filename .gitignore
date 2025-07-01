@@ -1,0 +1,77 @@
+# Kotlin / Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Build output
+/build/
+/out/
+/target/
+
+# Gradle
+.gradle/
+build/
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# MacOS
+.DS_Store
+
+# Linux
+*.swp
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment variables files
+.env
+.env.local
+.env.*.local
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Local database files (if you use something local)
+*.db
+*.sqlite
+
+# Kotlin specific
+.kotlinter-report.xml
+
+# Kotest reports (por si los generás)
+kotest-reports/
+
+# Miscellaneous
+.idea/
+*.iml
+
+# Docker (si usás)
+docker-compose.override.yml
+Dockerfile
+
+# Node modules si tenés frontend
+node_modules/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Misc
+*.bak
+*.orig
+
