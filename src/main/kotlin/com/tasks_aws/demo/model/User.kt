@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 
 @Document(User.COLLECTION_NAME)
-class User (
+data class User (
     @Id
     val id: String? = null,
     val name: String,

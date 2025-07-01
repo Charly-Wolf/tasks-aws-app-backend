@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 
 @Document(Task.COLLECTION_NAME)
-class Task (
+data class Task (
     @Id
     val id: String? = null,
     val listId: String,

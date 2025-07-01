@@ -5,5 +5,4 @@ import org.springframework.data.mongodb.repository.MongoRepository
 
 interface TaskListRepository: MongoRepository<TaskList, String> {
     fun findByUserId(userId: String): List<TaskList>
-
 }
