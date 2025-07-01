@@ -32,6 +32,8 @@ dependencies {
 	testImplementation("org.testcontainers:mongodb")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
+	testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(module = "junit")
 	}
