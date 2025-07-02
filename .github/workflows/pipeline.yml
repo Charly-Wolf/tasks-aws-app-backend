@@ -38,3 +38,32 @@ jobs:
         if: success() || failure() # always run even if the previous step fails
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
+
+  apply-terraforme:
+    name: Apply Terraform Infra
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.12.2
+
+      - name: Configure AWS Credentials
+        uses: Charly-Wolf/my-github-actions/.github/actions/setup-aws@main
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: us-east-1
+
+      - name: Run Terraform init
+        run: make init
+
+      - name: Run Terraform plan
+        run: make plan
+
+      - name: Run Terraform apply
+        run: make apply
+
