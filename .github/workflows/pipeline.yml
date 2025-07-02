@@ -3,7 +3,13 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      run_tests:
+        description: 'Run tests?'
+        required: true
+        default: true
+        type: boolean
 
 permissions:
   id-token: write
@@ -13,6 +19,7 @@ permissions:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.run_tests == 'true' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
