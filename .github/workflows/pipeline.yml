@@ -105,7 +105,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Upload app.zip to S3
-        run: aws s3 cp app.zip s3://tasks-app-demo-from-terraform/
+        run: aws s3 cp app.zip s3://tasks-app-demo-from-terraform-cardp/
 
       - name: Create new Elastic Beanstalk application version
         run: |
