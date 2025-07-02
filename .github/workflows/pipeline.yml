@@ -49,7 +49,6 @@ jobs:
 
   apply-terraforme:
     name: Apply Terraform Infra
-    needs: build-and-test
     if: ${{ github.event_name == 'push' || github.event.inputs.run_tests == 'false' || needs.build-and-test.result == 'success' }}
     runs-on: ubuntu-latest
     steps:
