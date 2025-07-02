@@ -8,7 +8,7 @@ on:
       run_tests:
         description: 'Run tests?'
         required: true
-        default: true
+        default: 'true'
         type: boolean
 
 permissions:
