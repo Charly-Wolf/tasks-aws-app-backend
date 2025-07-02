@@ -19,7 +19,7 @@ variable "env_name" {
 variable "platform" {
   description = "EB platform/solution stack"
   type        = string
-  default     = "64bit Amazon Linux 2023 v5.7.0 running Tomcat 10 Corretto 21"
+  default     = "64bit Amazon Linux 2023 v4.6.0 running Corretto 21"
 }
 
 variable "instance_type" {
