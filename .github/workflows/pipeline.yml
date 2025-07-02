@@ -92,6 +92,9 @@ jobs:
           distribution: 'corretto'
           java-version: '21'
 
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+        
       - name: Build and zip Spring Boot jar
         run: make build-without-tests
 
