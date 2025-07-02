@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/tasks")
 class TaskController(private val taskService: TaskService) {
+    // TODO : use validation, only show tasks of the logged in user
+    @GetMapping()
+    fun getTasks(): List<Task> = taskService.getAllTasks()
+
     @GetMapping("/byList")
     fun getTasksByListId(@RequestParam listId: String): List<Task> = taskService.getTasksByListId(listId)
 

@@ -7,3 +7,7 @@ import-mockdata-to-mongo:
 .PHONY: test
 test:
 	./gradlew test
+
+.PHONY: build-without-tests
+build-without-tests:
+	./gradlew bootJar
