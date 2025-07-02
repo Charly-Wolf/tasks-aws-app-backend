@@ -112,7 +112,7 @@ jobs:
           aws elasticbeanstalk create-application-version \
             --application-name tasks-app-demo-from-terraform \
             --version-label $GITHUB_SHA \
-            --source-bundle S3Bucket=tasks-app-demo-from-terraform,S3Key=app.zip
+            --source-bundle S3Bucket=tasks-app-demo-from-terraform-cardp,S3Key=app.zip
 
       - name: Update Elastic Beanstalk environment
         run: |
