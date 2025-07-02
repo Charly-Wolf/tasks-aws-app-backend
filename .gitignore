@@ -51,6 +51,8 @@ out/
 *.tfstate
 *.tfstate.*
 .terraform/
+terraform.tfvars
+*.tfvars
 
 # === Local DB files ===
 *.db
