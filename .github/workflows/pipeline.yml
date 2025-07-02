@@ -47,7 +47,7 @@ jobs:
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
 
-  apply-terraforme:
+  apply-terraform:
     name: Apply Terraform Infra
     if: ${{ github.event_name == 'push' || github.event.inputs.run_tests == 'false' || needs.build-and-test.result == 'success' }}
     runs-on: ubuntu-latest
@@ -78,3 +78,41 @@ jobs:
       - name: Run Terraform apply
         run: make apply
 
+  deploy:
+    name: Deploy to Elastic Beanstalk
+    needs: apply-terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '21'
+
+      - name: Build and zip Spring Boot jar
+        run: make build-without-tests
+
+      - name: Configure AWS Credentials
+        uses: Charly-Wolf/my-github-actions/.github/actions/setup-aws@main
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: us-east-1
+
+      - name: Upload app.zip to S3
+        run: aws s3 cp app.zip s3://tasks-app-demo-from-terraform/
+
+      - name: Create new Elastic Beanstalk application version
+        run: |
+          aws elasticbeanstalk create-application-version \
+            --application-name tasks-app-demo-from-terraform \
+            --version-label $GITHUB_SHA \
+            --source-bundle S3Bucket=tasks-app-demo-from-terraform,S3Key=app.zip
+
+      - name: Update Elastic Beanstalk environment
+        run: |
+          aws elasticbeanstalk update-environment \
+            --environment-name tasks-from-terraform-dev \
+            --version-label $GITHUB_SHA

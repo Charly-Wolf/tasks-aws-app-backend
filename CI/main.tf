@@ -10,7 +10,7 @@ resource "random_id" "suffix" {
 }
 
 resource "aws_s3_bucket" "deploy" {
-  bucket = "${var.app_name}-${random_id.suffix.hex}"
+  bucket = "${var.app_name}-cardp"
   tags   = var.tags
 }
 

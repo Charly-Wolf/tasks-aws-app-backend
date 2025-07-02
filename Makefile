@@ -11,6 +11,7 @@ test:
 .PHONY: build-without-tests
 build-without-tests:
 	./gradlew bootJar
+	zip -j app.zip build/libs/*.jar
 
 ## TERRAFORM
 .PHONY: init
