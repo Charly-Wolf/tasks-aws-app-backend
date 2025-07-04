@@ -9,4 +9,5 @@ import java.util.Optional
 class TaskListService(private val taskListRepository: TaskListRepository) {
     fun getTaskListByUserId(userId: String): List<TaskList> = taskListRepository.findByUserId(userId)
     fun getTaskListById(taskListId: String): Optional<TaskList> = taskListRepository.findById(taskListId)
+    fun createTaskList(taskList: TaskList): TaskList = taskListRepository.save<TaskList>(taskList)
 }
